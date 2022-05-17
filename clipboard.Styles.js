@@ -20,3 +20,5 @@ export const Content = styled.div`
   @media screen and (max-width: 768px) {
   }
 `;
+
+// some random stuff so i can commit
