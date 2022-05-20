@@ -204,6 +204,10 @@ img {
         color: var(--text-white);
     }
 
+    .menu>li a:hover {
+        color: var(--text-yellow);
+    }
+
     .menu>li:not(:last-child) {
         border-bottom: 1px solid #444;
     }
