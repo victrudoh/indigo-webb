@@ -116,6 +116,7 @@ export const InputField = styled.div`
 
     @media screen and (max-width: 576px) {
       font-size: 13px;
+      padding: 0 0.5rem;
     }
   }
 `;

@@ -70,20 +70,28 @@ export const Bottom = styled.div`
   justify-content: space-between;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  /* background-color: green; */
 
   @media screen and (max-width: 576px) {
     display: block;
   }
 
   @media screen and (max-width: 768px) {
+    width: 80%;
   }
 `;
 
 export const Left = styled.div`
+  /* background-color: red; */
+
   @media screen and (max-width: 576px) {
   }
 
   @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .title {
@@ -107,6 +115,7 @@ export const Left = styled.div`
     @media screen and (max-width: 768px) {
       font-size: 28px;
       line-height: 28px;
+      display: block;
     }
   }
 
@@ -127,7 +136,7 @@ export const Left = styled.div`
 
     @media screen and (max-width: 768px) {
       font-size: 16px;
-      line-height: 14px;
+      line-height: 24px;
     }
   }
 
@@ -145,6 +154,18 @@ export const Left = styled.div`
 
 export const Right = styled.div`
   margin-top: 1rem;
+  /* background-color: white; */
+
+  @media screen and (max-width: 576px) {
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+  }
 
   a {
     text-decoration: none;
@@ -159,9 +180,10 @@ export const Right = styled.div`
     display: flex;
     gap: 2rem;
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 768px) {
       gap: 1rem;
-      margin-left: -45px;
+      margin: 0 auto;
+      /* background-color: orange; */
     }
   }
 
@@ -169,13 +191,6 @@ export const Right = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-  }
-
-  @media screen and (max-width: 576px) {
-  }
-
-  @media screen and (max-width: 768px) {
-    margin: 1rem auto;
   }
 `;
 
@@ -235,6 +250,7 @@ export const RelatedBottom = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 100%;
+    margin: 0 auto;
   }
 
   h3 {
