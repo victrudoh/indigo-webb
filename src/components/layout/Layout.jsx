@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 // Components
 import Routes from "../Routes";
 import Navbar from "../navbar/Navbar";
+import Navbar2 from "../navbar/Navbar2";
 
 // Styles
 import { LayoutStyle } from "./Layout.Styles";
@@ -16,7 +17,8 @@ const Layout = () => {
         render={(props) => (
           <>
             <LayoutStyle>
-              <Navbar />
+              {/* <Navbar /> */}
+              <Navbar2 />
               <Routes />
             </LayoutStyle>
           </>

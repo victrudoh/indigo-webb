@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   padding: 5rem;
   padding-top: 4rem;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-image: url(${(props) => props.bg});
   background-size: cover;
