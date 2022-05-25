@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 // Styles
 import {
@@ -14,34 +16,90 @@ import {
 import bg from "../../../assets/images/auth/signup/1/bg2.jpg";
 import leftImage from "../../../assets/images/auth/signup/1/pubg1.jpg";
 
+// components
+import { Spinner } from "../../../components/spinner/Spinner.Styles";
+
 const SignUp = () => {
+  const history = useHistory();
+
+  const [userDetails, setUserDetails] = useState({
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+    city: "",
+    country: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const submit = async (e) => {
+    setLoading(true);
+    console.log("userDetails", userDetails);
+    e.preventDefault();
+    const response = await axios.post(
+      "https://ixnote-game-dev-backend.herokuapp.com/api/v1/auth/signUp",
+      userDetails,
+      {
+        headers: { "content-type": "application/json" },
+      }
+    );
+    console.log("response", response);
+    setLoading(false);
+    if (response.status === 201) {
+      history.push("/signupgotomail");
+    }
+  };
+
+  const onchangeHandler = async (e) => {
+    e.persist();
+    setUserDetails((userDetails) => ({
+      ...userDetails,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   return (
     <>
       <Wrapper bg={bg}>
         <Content>
           <Left bg={leftImage} />
           <Right>
-            <Title>Sign up (1/2)</Title>
+            <Title>Sign up</Title>
             <RightBody>
               <h4>Start your experience</h4>
-              <form method="get" action="/signup2">
+              <form onSubmit={submit}>
                 <input
                   type="text"
-                  name="nickname"
-                  id="nickname"
-                  placeholder="Nickname"
+                  name="name"
+                  id="name"
+                  placeholder="Your name"
+                  onChange={onchangeHandler}
+                  defaultValue={userDetails.name}
+                />
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Username"
+                  onChange={onchangeHandler}
+                  defaultValue={userDetails.username}
                 />
                 <input
                   type="email"
                   name="email"
                   id="email"
                   placeholder="E-mail"
+                  onChange={onchangeHandler}
+                  defaultValue={userDetails.email}
                 />
                 <input
                   type="password"
                   name="password"
                   id="password"
                   placeholder="Password"
+                  onChange={onchangeHandler}
+                  defaultValue={userDetails.password}
                 />
 
                 <input
@@ -49,13 +107,29 @@ const SignUp = () => {
                   name="country"
                   id="country"
                   placeholder="Country"
+                  onChange={onchangeHandler}
+                  defaultValue={userDetails.country}
                 />
-                <input type="text" name="city" id="city" placeholder="City" />
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  placeholder="City"
+                  onChange={onchangeHandler}
+                  defaultValue={userDetails.city}
+                />
                 <p>
                   By creating the account you agree to the Terms of Service and
                   Privacy Policy
                 </p>
-                <button type="submit">Next step</button>
+
+                {loading ? (
+                  <Spinner />
+                ) : (
+                  <>
+                    <button type="submit">Sign up</button>
+                  </>
+                )}
               </form>
             </RightBody>
           </Right>

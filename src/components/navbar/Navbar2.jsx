@@ -1,35 +1,46 @@
 import React from "react";
-import { BrowserRouter, NavLink, Route } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 // Styles
-// import { Wrapper, Content, Inner, Logo } from "./Navbar.Styles";
 import "./Navbar2.css";
 
 // Components
 import logo from "../../assets/images/logo.png";
 
 const Navbar2 = () => {
+  const history = useHistory();
+
+  const token = localStorage.getItem("token");
+  console.log("token", token);
+
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+    history.push("/");
+  };
+
   return (
     <>
-      <section class="top-nav">
+      <section className="top-nav">
         <div>
           <a href="/">
             <img src={logo} alt="Indigo" />
           </a>
         </div>
         <input id="menu-toggle" type="checkbox" />
-        <label class="menu-button-container" for="menu-toggle">
-          <div class="menu-button"></div>
+        <label className="menu-button-container" htmlFor="menu-toggle">
+          <div className="menu-button"></div>
         </label>
-        <ul class="menu">
+        <ul className="menu">
           <li>
-            <a href="/">HOME</a>
+            <Link to="/">Home</Link>
+            {/* <a href="/">HOME</a> */}
           </li>
           <li>
             <a href="/">FEATURES</a>
           </li>
           <li>
-            <a href="/stream">STREAM</a>
+            <Link to="/stream">Stream</Link>
+            {/* <a href="/stream">STREAM</a> */}
           </li>
           <li>
             <a href="/leaderboard">LEADERBOARD</a>
@@ -37,48 +48,76 @@ const Navbar2 = () => {
           <li>
             <a href="/contact">CONTACT</a>
           </li>
-          <li className="hide">
-            <a href="/profile" className="signin">
-              PROFILE
-            </a>
-          </li>
-          <li className="hide">
-            <a href="/signin" className="signin">
-              SIGN IN
-            </a>
-          </li>
-          <li className="hide">
-            <a href="/signup" className="signup">
-              SIGN UP
-            </a>
-          </li>
-          <li className="hide">
-            <a href="/logout" className="logout">
-              LOG OUT
-            </a>
-          </li>
+
+          {token ? (
+            <>
+              <li className="hide">
+                <a href="/profile" className="signin">
+                  PROFILE
+                </a>
+              </li>
+              <li className="hide">
+                <a className="logout" onClick={logoutHandler}>
+                  LOG OUT
+                </a>
+              </li>
+            </>
+          ) : (
+            ""
+          )}
+
+          {!token ? (
+            <>
+              <li className="hide">
+                <a href="/signin" className="signin">
+                  SIGN IN
+                </a>
+              </li>
+              <li className="hide">
+                <a href="/signup" className="signup">
+                  SIGN UP
+                </a>
+              </li>
+            </>
+          ) : (
+            ""
+          )}
         </ul>
-        <ul class="menu2">
-          <li>
-            <a href="/profile" className="signin">
-              PROFILE
-            </a>
-          </li>
-          <li>
-            <a href="/signin" className="signin">
-              SIGN IN
-            </a>
-          </li>
-          <li>
-            <a href="/signup" className="signup">
-              SIGN UP
-            </a>
-          </li>
-          <li>
-            <a href="/logout" className="logout">
-              LOG OUT
-            </a>
-          </li>
+
+        <ul className="menu2">
+          {token ? (
+            <>
+              <li>
+                <a href="/profile" className="signin">
+                  PROFILE
+                </a>
+              </li>
+              <li>
+                <a className="logout" onClick={logoutHandler}>
+                  LOG OUT
+                </a>
+              </li>
+            </>
+          ) : (
+            ""
+          )}
+
+          {!token ? (
+            <>
+              <li>
+                <a href="/signin" className="signin">
+                  SIGN IN
+                </a>
+              </li>
+              <li>
+                <a href="/signup" className="signup">
+                  SIGN UP
+                </a>
+              </li>
+            </>
+          ) : (
+            ""
+          )}
         </ul>
       </section>
     </>
