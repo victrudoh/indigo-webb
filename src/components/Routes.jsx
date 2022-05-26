@@ -27,6 +27,7 @@ const MainRouter = () => {
         <Route path="signupgotomail" element={<SignUpCheckMail />} />
         <Route path="signupverify" element={<SignUpVerify />} />
         <Route path="signup2" element={<SignUp2 />} />
+        <Route path="signIn" element={<SignIn />} />
         <Route path="profile" element={<Profile />} />
         <Route path="leaderboard" element={<Leaderboard />} />
         <Route path="stream" element={<Stream />} />

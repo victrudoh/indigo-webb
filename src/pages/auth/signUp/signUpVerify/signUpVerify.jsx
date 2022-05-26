@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 
 // Styles
@@ -13,9 +13,11 @@ import bg from "../../../../assets/images/auth/signupverify/bg.webp";
 import verifyIcon from "../../../../assets/images/auth/signupverify/icon.png";
 
 const SignUpVerify = () => {
-  // const navigate = useNavigate();
-  const { id } = useParams();
-  console.log("id", id);
+  const navigate = useNavigate();
+  // const { token } = useParams();
+
+  const search = useLocation().search;
+  const token = new URLSearchParams(search).get("token");
 
   const [loading, setLoading] = useState(false);
 
@@ -23,12 +25,12 @@ const SignUpVerify = () => {
     setLoading(true);
     e.preventDefault();
     const response = await axios.get(
-      `https://ixnote-game-dev-backend.herokuapp.com/api/v1/auth/activateAccount/${id}`
+      `https://ixnote-game-dev-backend.herokuapp.com/api/v1/auth/activateAccount/${token}`
     );
     console.log("response", response);
     setLoading(false);
-    if (response.status === 201) {
-      // navigate("/signin");
+    if (response.status === 200) {
+      navigate("/signin");
     }
   };
 

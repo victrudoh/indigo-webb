@@ -8,14 +8,14 @@ import "./Navbar2.css";
 import logo from "../../assets/images/logo.png";
 
 const Navbar2 = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
   console.log("token", token);
 
   const logoutHandler = () => {
     localStorage.removeItem("token");
-    // navigate("/");
+    navigate("/");
   };
 
   return (
@@ -32,21 +32,19 @@ const Navbar2 = () => {
         </label>
         <ul className="menu">
           <li>
-            <Link to="/">Home</Link>
-            {/* <a href="/">HOME</a> */}
+            <Link to="/">HOME</Link>
           </li>
           <li>
-            <a href="/">FEATURES</a>
+            <Link to="/">FEATURES</Link>
           </li>
           <li>
-            <Link to="/stream">Stream</Link>
-            {/* <a href="/stream">STREAM</a> */}
+            <Link to="/stream">STREAM</Link>
           </li>
           <li>
-            <a href="/leaderboard">LEADERBOARD</a>
+            <Link to="leaderboard">LEADERBOARD</Link>
           </li>
           <li>
-            <a href="/contact">CONTACT</a>
+            <Link to="contact">CONTACT</Link>
           </li>
 
           {token ? (

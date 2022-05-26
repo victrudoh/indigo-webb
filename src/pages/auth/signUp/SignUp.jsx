@@ -47,7 +47,7 @@ const SignUp = () => {
     console.log("response", response);
     setLoading(false);
     if (response.status === 201) {
-      navigate("signupgotomail");
+      navigate("/signupgotomail");
     }
   };
 
