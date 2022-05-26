@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // Styles
@@ -20,7 +20,7 @@ import leftImage from "../../../assets/images/auth/signup/1/pubg1.jpg";
 import { Spinner } from "../../../components/spinner/Spinner.Styles";
 
 const SignUp = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [userDetails, setUserDetails] = useState({
     name: "",
@@ -47,7 +47,7 @@ const SignUp = () => {
     console.log("response", response);
     setLoading(false);
     if (response.status === 201) {
-      history.push("/signupgotomail");
+      navigate("signupgotomail");
     }
   };
 

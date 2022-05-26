@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 // Styles
@@ -13,7 +13,7 @@ import bg from "../../../../assets/images/auth/signupverify/bg.webp";
 import verifyIcon from "../../../../assets/images/auth/signupverify/icon.png";
 
 const SignUpVerify = () => {
-  const history = useHistory();
+  // const navigate = useNavigate();
   const { id } = useParams();
   console.log("id", id);
 
@@ -28,7 +28,7 @@ const SignUpVerify = () => {
     console.log("response", response);
     setLoading(false);
     if (response.status === 201) {
-      history.push("/signin");
+      // navigate("/signin");
     }
   };
 

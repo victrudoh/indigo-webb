@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 // Styles
 import "./Navbar2.css";
@@ -8,14 +8,14 @@ import "./Navbar2.css";
 import logo from "../../assets/images/logo.png";
 
 const Navbar2 = () => {
-  const history = useHistory();
+  // const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
   console.log("token", token);
 
   const logoutHandler = () => {
     localStorage.removeItem("token");
-    history.push("/");
+    // navigate("/");
   };
 
   return (
