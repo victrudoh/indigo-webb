@@ -37,11 +37,14 @@ const GameShowcase = () => {
           STREAM
         </Top>
         <Stream>
-          <video controls={"controls"}>
-            <source
-              src="https://www.callofduty.com/cdn/codm/videos/home/codm-hero-video-desktop.mp4"
-              type="video/mp4"
-            />
+          <video
+            controls
+            loop
+            autoPlay
+            // poster={codm}
+            src="https://www.callofduty.com/cdn/codm/videos/home/codm-hero-video-desktop.mp4"
+          >
+            {/* <source type="video/mp4" /> */}
             Your browser does not support the video tag.
           </video>
         </Stream>

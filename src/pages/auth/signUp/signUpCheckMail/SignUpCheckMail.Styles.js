@@ -4,8 +4,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   padding: 5rem;
   padding-top: 4rem;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-image: url(${(props) => props.bg});
   background-size: cover;
   background-repeat: no-repeat;
@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   /* background-color: red; */
   width: 50%;
-  min-height: 50%;
+  /* min-height: 50%; */
   margin: 5rem auto;
   display: flex;
   flex-direction: column;

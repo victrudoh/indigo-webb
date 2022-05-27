@@ -42,7 +42,7 @@ const Signin = () => {
     );
     console.log("response", response);
     setLoading(false);
-    if (response.status === 201) {
+    if (response.status === 200) {
       navigate("/profile");
     }
   };

@@ -25,11 +25,11 @@ const BottomLinks = () => {
               <img src={Slack} alt="" />
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="/">
               <img src={Atlassian} alt="" />
             </a>
-          </li>
+          </li> */}
           <li>
             <a href="/">
               <img src={Dropbox} alt="" />

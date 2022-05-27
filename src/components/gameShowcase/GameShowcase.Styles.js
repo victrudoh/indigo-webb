@@ -50,7 +50,7 @@ export const Stream = styled.div`
 
   video {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     /* padding: 2rem; */
     border-radius: var(--border-radius);
 
@@ -65,7 +65,7 @@ export const Stream = styled.div`
 
 export const Bottom = styled.div`
   width: 50%;
-  margin: 0 auto;
+  margin: 2rem auto;
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
