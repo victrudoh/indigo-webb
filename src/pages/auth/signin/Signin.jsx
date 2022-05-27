@@ -41,8 +41,10 @@ const Signin = () => {
       }
     );
     console.log("response", response);
+    const token = response.data.token;
     setLoading(false);
     if (response.status === 200) {
+      localStorage.setItem("token", token);
       navigate("/profile");
     }
   };

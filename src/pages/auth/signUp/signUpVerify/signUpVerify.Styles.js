@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   /* background-color: red; */
   width: 50%;
-  min-height: 50%;
+  /* min-height: 50%; */
   margin: 5rem auto;
   display: flex;
   flex-direction: column;

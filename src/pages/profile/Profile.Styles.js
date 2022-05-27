@@ -93,11 +93,11 @@ export const LeftTop = styled.div`
   }
 
   .name {
-    font-size: 35px;
+    font-size: 40px;
   }
 
   .team {
-    font-size: 23px;
+    font-size: 18px;
     line-height: 28px;
     color: var(--text-purple);
     margin-bottom: 1rem;
