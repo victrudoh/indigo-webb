@@ -14,8 +14,8 @@ const SignUpCheckMail = () => {
         <Content>
           <img src={verifyIcon} alt="media" />
           <p>
-            We've sent you a mail to the email you just registered, please visit
-            your mailbox to complete verification, thank you.
+            We've sent you a mail to the email you provided, please visit your
+            mailbox to proceed, thank you.
           </p>
         </Content>
       </Wrapper>

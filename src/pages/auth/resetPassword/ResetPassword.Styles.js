@@ -4,8 +4,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   padding: 5rem;
   padding-top: 4rem;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   background-image: url(${(props) => props.bg});
   background-size: cover;
   background-repeat: no-repeat;
@@ -26,93 +26,29 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   /* background-color: red; */
   width: 70%;
-  /* min-height: 50%; */
+  min-height: 50%;
   margin: 5rem auto;
   display: flex;
-
-  @media screen and (max-width: 576px) {
-  }
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    padding-top: 4rem;
-  }
-`;
-
-export const Left = styled.div`
-  /* background-color: blue; */
-  width: 30%;
-  /* min-height: 500px; */
   background-color: #ffffff40;
-  backdrop-filter: blur(50px);
-  border-radius: 10px 0 0 10px;
-  background-image: url(${(props) => props.bg});
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  @media screen and (max-width: 576px) {
-  }
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
-
-export const Right = styled.div`
-  /* background-color: greenyellow; */
-  background-color: #ffffff40;
-  backdrop-filter: blur(30px);
-  width: 70%;
-  border-radius: 0 10px 10px 0;
+  backdrop-filter: blur(20px);
+  border-radius: --var(border-radius);
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem;
-
-  @media screen and (max-width: 576px) {
-  }
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    border-radius: var(--border-radius);
-  }
-`;
-
-export const Title = styled.div`
-  font-family: "IBM Plex Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 48px;
-  color: var(--text-white);
-  display: flex;
-  justify-content: end;
-  margin-right: 4rem;
-  margin-bottom: 1rem;
-
-  @media screen and (max-width: 768px) {
-    margin: auto;
-  }
-`;
-
-export const RightBody = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
 
   h4 {
     font-family: "IBM Plex Sans";
     font-style: normal;
     font-weight: 500;
-    font-size: 26px;
+    font-size: 35px;
     line-height: 48px;
-    color: var(--text-black);
+    color: var(--text-yellow);
     display: flex;
-    margin-left: 4rem;
+    justify-content: center;
 
     @media screen and (max-width: 768px) {
       font-weight: 500;
-      font-size: 20px;
+      font-size: 30px;
       line-height: 28px;
       margin: 1rem auto;
     }
@@ -134,13 +70,7 @@ export const RightBody = styled.div`
     font-weight: 400;
     font-size: 20px;
     line-height: 48px;
-    /* outline: none; */
     outline-color: #ff7c00;
-
-    &:focus {
-      /* outline-color: #ff7c00; */
-      /* border: 1px solid #ff7c00; */
-    }
 
     &::placeholder {
       font-family: "IBM Plex Sans";
@@ -153,30 +83,9 @@ export const RightBody = styled.div`
   }
 
   p {
-    font-size: 16px;
+    font-size: 18px;
     margin: 1rem;
-    text-decoration: none;
-    float: left;
-    color: var(--text-yellow);
-    margin-left: 4.5rem;
-
-    &:hover {
-      color: var(--text-white);
-      cursor: pointer;
-    }
-  }
-
-  a {
-    font-size: 16px;
-    margin: 1rem;
-    text-decoration: none;
-    float: left;
-    color: red;
-    margin-left: 4rem;
-
-    &:hover {
-      color: var(--text-muted);
-    }
+    color: var(--text-black);
   }
 
   button {
@@ -195,5 +104,13 @@ export const RightBody = styled.div`
       background-image: linear-gradient(to right, #ffa800, #ff7c00);
       width: 78%;
     }
+  }
+
+  @media screen and (max-width: 576px) {
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding-top: 4rem;
   }
 `;

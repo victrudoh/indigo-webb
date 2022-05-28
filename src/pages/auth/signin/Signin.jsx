@@ -49,6 +49,10 @@ const Signin = () => {
     }
   };
 
+  const gotoForgotPassword = async () => {
+    navigate("/forgotpassword");
+  };
+
   const onchangeHandler = async (e) => {
     e.persist();
     setUserDetails((userDetails) => ({
@@ -83,8 +87,9 @@ const Signin = () => {
                   onChange={onchangeHandler}
                   defaultValue={userDetails.password}
                 />
-                <p>
-                  <a href="/signin">forgot password?</a>
+                <p onClick={gotoForgotPassword}>
+                  {/* <a href="/signin">forgot password?</a> */}
+                  forgot password?
                 </p>
 
                 {loading ? (
