@@ -69,18 +69,23 @@ const Leaderboard = () => {
       <Wrapper bg={bg}>
         <Content>
           <Top>
-            <TopLeft>
-              {/* <TopLeftImg /> */}
-              <img src={user.user_img ? user.user.img : DP} alt="media" />
-              <TopLeftText>
-                <h4>{user.username}</h4>
-                <h5>{user.gameId}</h5>
-              </TopLeftText>
-            </TopLeft>
-            <TopRight>
-              <h4>Rank</h4>
-              <h5>{user.position}</h5>
-            </TopRight>
+            {localStorage.getItem("token") ? (
+              <>
+                <TopLeft>
+                  <img src={user.user_img ? user.user.img : DP} alt="media" />
+                  <TopLeftText>
+                    <h4>{user.username}</h4>
+                    <h5>{user.gameId}</h5>
+                  </TopLeftText>
+                </TopLeft>
+                <TopRight>
+                  <h4>Rank</h4>
+                  <h5>{user.position}</h5>
+                </TopRight>
+              </>
+            ) : (
+              <h4 className="mx-5">Leaderboard</h4>
+            )}
           </Top>
           <List>
             {Board.map((item) => (
