@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   padding: 5rem;
   padding-top: 4rem;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-image: url(${(props) => props.bg});
   background-size: cover;
@@ -174,8 +174,8 @@ export const ListItem = styled.div`
   /* background-color: orangered; */
 
   @media screen and (max-width: 768px) {
-    width: 100%;
-    justify-content: space-evenly;
+    width: 90%;
+    justify-content: space-between;
   }
 
   img {
@@ -189,6 +189,7 @@ export const ListItem = styled.div`
   }
 
   .numImgPair {
+    /* background-color: red; */
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -199,7 +200,9 @@ export const ListItem = styled.div`
   }
 
   .nameIdPair {
+    /* background-color: red; */
     display: flex;
+    /* min-width: 100px; */
     align-items: center;
     gap: 2rem;
 
@@ -211,6 +214,7 @@ export const ListItem = styled.div`
   .country {
     @media screen and (max-width: 768px) {
       margin: 0 0.5rem;
+      display: none;
     }
   }
 

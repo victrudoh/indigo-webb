@@ -14,7 +14,6 @@ import verifyIcon from "../../../../assets/images/auth/signupverify/icon.png";
 
 const SignUpVerify = () => {
   const navigate = useNavigate();
-  // const { token } = useParams();
 
   const search = useLocation().search;
   const token = new URLSearchParams(search).get("token");

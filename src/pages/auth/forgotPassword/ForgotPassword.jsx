@@ -54,8 +54,8 @@ const ForgotPassword = () => {
           <form onSubmit={submit}>
             <h4>Forgot Password?</h4>
             <p>
-              Please enter your account email below so we can help you finnd
-              your account
+              Please enter your account email below so we can help you find your
+              account
             </p>
 
             <input

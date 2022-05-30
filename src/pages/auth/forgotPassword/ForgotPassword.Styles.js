@@ -31,7 +31,7 @@ export const Content = styled.div`
   display: flex;
   background-color: #ffffff40;
   backdrop-filter: blur(20px);
-  border-radius: --var(border-radius);
+  border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem;

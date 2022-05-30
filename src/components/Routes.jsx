@@ -13,7 +13,7 @@ import SignUpCheckMail from "../pages/auth/signUp/signUpCheckMail/SignUpCheckMai
 import SignUp2 from "../pages/auth/signUp/page2/SignUp2";
 import SignIn from "../pages/auth/signin/Signin";
 import ForgotPassword from "../pages/auth/forgotPassword/ForgotPassword";
-import ResetPasword from "../pages/auth/resetPassword/ResetPasword";
+import ResetPassword from "../pages/auth/resetPassword/ResetPassword";
 
 import Profile from "../pages/profile/Profile";
 import Leaderboard from "./leaderboard/Leaderboard";
@@ -31,7 +31,7 @@ const MainRouter = () => {
         <Route path="signup2" element={<SignUp2 />} />
         <Route path="signIn" element={<SignIn />} />
         <Route path="forgotpassword" element={<ForgotPassword />} />
-        <Route path="resetpasword" element={<ResetPasword />} />
+        <Route path="resetpassword" element={<ResetPassword />} />
 
         <Route path="profile" element={<Profile />} />
         <Route path="leaderboard" element={<Leaderboard />} />

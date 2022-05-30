@@ -7,14 +7,16 @@ import { Wrapper } from "./Home.Styles";
 import LandingPage from "../../components/landingPage/LandingPage";
 import GameShowcase from "../../components/gameShowcase/GameShowcase";
 import Leaderboard from "../../components/leaderboard/Leaderboard";
+import Jumbotron from "../../components/jumbotron/Jumbotron";
 
 const Home = () => {
   return (
     <>
       <Wrapper>
         <LandingPage />
-        {/* <GameShowcase /> */}
-        {/* <Leaderboard /> */}
+        <Jumbotron />
+        <GameShowcase />
+        <Leaderboard />
       </Wrapper>
     </>
   );
