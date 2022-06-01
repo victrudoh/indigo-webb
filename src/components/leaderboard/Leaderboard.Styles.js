@@ -18,6 +18,17 @@ export const Wrapper = styled.div`
     justify-content: end;
 
     @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .searchBarDown {
+    margin: 1rem auto;
+    width: 90%;
+    display: flex;
+    justify-content: end;
+
+    @media screen and (max-width: 768px) {
       margin-top: 4rem;
     }
   }

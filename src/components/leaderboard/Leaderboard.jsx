@@ -113,8 +113,6 @@ const Leaderboard = () => {
               <table class="table ">
                 <tbody>
                   <tr>
-                    {/* <th scope="row">{item.position}</th> */}
-                    {/* <td><img src={item.user_img ? item.user.img : DP} alt="media" /></td> */}
                     <td>{item.position}</td>
                     <td>{item.username}</td>
                     <td>{item.gameId}</td>
@@ -132,6 +130,9 @@ const Leaderboard = () => {
               <h6>Back</h6>
             </a>
           </Bottom>
+          <div className="searchBarDown">
+            <SearchBar label={"username"} search={onSearchCangeHandler} />
+          </div>
         </Content>
       </Wrapper>
     </>
