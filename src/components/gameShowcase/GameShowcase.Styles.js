@@ -45,21 +45,15 @@ export const Top = styled.div`
 export const Stream = styled.div`
   /* background-color: red; */
   width: 80%;
-  height: 60vh;
   margin: 0 auto;
 
   video {
     width: 100%;
-    /* height: 100%; */
-    /* padding: 2rem; */
     border-radius: var(--border-radius);
 
     @media screen and (max-width: 768px) {
       width: 100%;
     }
-  }
-  @media screen and (max-width: 768px) {
-    height: 40vh;
   }
 `;
 
@@ -78,6 +72,8 @@ export const Bottom = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 80%;
+    margin: 1rem auto;
+    padding-bottom: 1rem;
   }
 `;
 
