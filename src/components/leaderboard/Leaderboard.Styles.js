@@ -10,6 +10,18 @@ export const Wrapper = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
 
+  .searchBar {
+    /* background-color: green; */
+    margin: 1rem auto;
+    width: 90%;
+    display: flex;
+    justify-content: end;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 4rem;
+    }
+  }
+
   @media screen and (max-width: 576px) {
     padding-top: 8rem;
     padding: 1rem;
@@ -26,7 +38,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   /* background-color: red; */
   width: 90%;
-  margin: 3rem auto;
+  margin: 1.5rem auto;
   display: flex;
   flex-direction: column;
   backdrop-filter: blur(20px);
@@ -38,7 +50,7 @@ export const Content = styled.div`
 
   @media screen and (max-width: 768px) {
     width: 100%;
-    margin-top: 7rem;
+    margin-top: 3rem;
   }
 `;
 
@@ -138,7 +150,7 @@ export const TopRight = styled.div`
 export const List = styled.div`
   backdrop-filter: blur(40px);
   height: 400px;
-  width: 100%;
+  width: 94%;
   margin: 1rem auto;
   padding: 1rem 0;
   overflow-y: auto;
@@ -162,6 +174,44 @@ export const List = styled.div`
 
   @media screen and (max-width: 768px) {
     height: 300px;
+    width: 100%;
+  }
+
+  .disappear {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  table,
+  th,
+  td {
+    @media screen and (max-width: 576px) {
+      border: 1px solid var(--text-white);
+    }
+  }
+
+  td {
+    min-width: 20px;
+    max-width: 20px;
+
+    @media screen and (max-width: 576px) {
+      max-width: 100px;
+      font-size: 10px;
+    }
+  }
+
+  tr {
+    transition: all 300ms;
+  }
+
+  tr:hover {
+    color: var(--text-white);
+    background: linear-gradient(
+      111.03deg,
+      rgba(239, 238, 238, 0.32) 2.82%,
+      rgba(239, 238, 238, 0.06) 90.94%
+    );
   }
 `;
 
@@ -189,25 +239,32 @@ export const ListItem = styled.div`
   }
 
   .numImgPair {
-    /* background-color: red; */
+    background-color: red;
     display: flex;
     align-items: center;
     gap: 2rem;
+    min-width: 100px;
+    max-width: 120px;
 
     @media screen and (max-width: 768px) {
       margin-right: 0.5rem;
+      min-width: 20px;
+      max-width: 25px;
     }
   }
 
   .nameIdPair {
-    /* background-color: red; */
+    background-color: red;
     display: flex;
-    /* min-width: 100px; */
+    justify-content: space-evenly;
+    min-width: 400px;
+    /* max-width: 320px; */
     align-items: center;
     gap: 2rem;
 
     @media screen and (max-width: 768px) {
       gap: 0.5rem;
+      min-width: 200px;
     }
   }
 

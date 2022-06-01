@@ -19,9 +19,13 @@ import {
 import bg from "../../assets/images/leaderboard/bg.webp";
 import DP from "../../assets/images/leaderboard/itachi.jpg";
 
+// Components
+import SearchBar from "../searchBar/SearchBar";
+
 const Leaderboard = () => {
   const [user, setUser] = useState({});
   const [Board, setBoard] = useState([]);
+  const [filtered, setFiltered] = useState([]);
 
   // get user profile to populate top of leaderboard
   const getProfile = async () => {
@@ -57,6 +61,20 @@ const Leaderboard = () => {
     );
     const board = response.data.leaderboard;
     setBoard(board);
+    setFiltered(board);
+  };
+
+  // SearchBar Handler
+  const onSearchCangeHandler = async (e) => {
+    try {
+      e.preventDefault();
+      const filteredBoard = Board.filter((item) =>
+        item.username.toLowerCase().includes(e.target.value.toLocaleLowerCase())
+      );
+      setFiltered(filteredBoard);
+    } catch (err) {
+      return err;
+    }
   };
 
   useEffect(() => {
@@ -67,6 +85,9 @@ const Leaderboard = () => {
   return (
     <>
       <Wrapper bg={bg}>
+        <div className="searchBar">
+          <SearchBar label={"username"} search={onSearchCangeHandler} />
+        </div>
         <Content>
           <Top>
             {localStorage.getItem("token") ? (
@@ -88,31 +109,21 @@ const Leaderboard = () => {
             )}
           </Top>
           <List>
-            {Board.map((item) => (
-              <ListItem>
-                <div className="numImgPair">
-                  <h6>{item.position}</h6>
-                  <img src={item.user_img ? item.user.img : DP} alt="media" />
-                </div>
-
-                <div className="nameIdPair">
-                  <h6>{item.username}</h6>
-                  <h6>{item.gameId}</h6>
-                </div>
-
-                <div className="country">
-                  <h6>{item.country}</h6>
-                </div>
-
-                <div className="cityStatePair">
-                  {/* <h6>Plateau State</h6> */}
-                  <h6>{item.city}</h6>
-                </div>
-
-                <div className="rating">
-                  <h6>{item.experience}</h6>
-                </div>
-              </ListItem>
+            {filtered.map((item) => (
+              <table class="table ">
+                <tbody>
+                  <tr>
+                    {/* <th scope="row">{item.position}</th> */}
+                    {/* <td><img src={item.user_img ? item.user.img : DP} alt="media" /></td> */}
+                    <td>{item.position}</td>
+                    <td>{item.username}</td>
+                    <td>{item.gameId}</td>
+                    <td className="disappear">{item.country}</td>
+                    <td className="disappear">{item.city}</td>
+                    <td>{item.experience}</td>
+                  </tr>
+                </tbody>
+              </table>
             ))}
           </List>
           <Bottom>
