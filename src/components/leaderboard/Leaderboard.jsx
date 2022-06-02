@@ -21,11 +21,13 @@ import DP from "../../assets/images/leaderboard/itachi.jpg";
 
 // Components
 import SearchBar from "../searchBar/SearchBar";
+import { Spinner } from "../spinner/Spinner.Styles";
 
 const Leaderboard = () => {
   const [user, setUser] = useState({});
   const [Board, setBoard] = useState([]);
   const [filtered, setFiltered] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // get user profile to populate top of leaderboard
   const getProfile = async () => {
@@ -51,6 +53,7 @@ const Leaderboard = () => {
   console.log("user: ", user);
 
   const getLeaderBoard = async () => {
+    setLoading(true);
     const response = await axios.get(
       "https://ixnote-game-dev-backend.herokuapp.com/api/v1/users/leaderboard",
       {
@@ -62,6 +65,7 @@ const Leaderboard = () => {
     const board = response.data.leaderboard;
     setBoard(board);
     setFiltered(board);
+    setLoading(false);
   };
 
   // SearchBar Handler
@@ -96,11 +100,11 @@ const Leaderboard = () => {
                   <img src={user.user_img ? user.user.img : DP} alt="media" />
                   <TopLeftText>
                     <h4>{user.username}</h4>
-                    <h5>{user.gameId}</h5>
+                    <h5>{user.rank}</h5>
                   </TopLeftText>
                 </TopLeft>
                 <TopRight>
-                  <h4>Rank</h4>
+                  <h4></h4>
                   <h5>{user.position}</h5>
                 </TopRight>
               </>
@@ -109,20 +113,24 @@ const Leaderboard = () => {
             )}
           </Top>
           <List>
-            {filtered.map((item) => (
-              <table class="table ">
-                <tbody>
-                  <tr>
-                    <td>{item.position}</td>
-                    <td>{item.username}</td>
-                    <td>{item.gameId}</td>
-                    <td className="disappear">{item.country}</td>
-                    <td className="disappear">{item.city}</td>
-                    <td>{item.experience}</td>
-                  </tr>
-                </tbody>
-              </table>
-            ))}
+            {loading ? (
+              <Spinner />
+            ) : (
+              filtered.map((item) => (
+                <table class="table ">
+                  <tbody>
+                    <tr>
+                      <td>{item.position}</td>
+                      <td>{item.username}</td>
+                      <td>{item.rank}</td>
+                      <td className="disappear">{item.country}</td>
+                      <td className="disappear">{item.city}</td>
+                      <td>{item.experience}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              ))
+            )}
           </List>
           <Bottom>
             <a href="/">
@@ -130,9 +138,9 @@ const Leaderboard = () => {
               <h6>Back</h6>
             </a>
           </Bottom>
-          <div className="searchBarDown">
+          {/* <div className="searchBarDown">
             <SearchBar label={"username"} search={onSearchCangeHandler} />
-          </div>
+          </div> */}
         </Content>
       </Wrapper>
     </>

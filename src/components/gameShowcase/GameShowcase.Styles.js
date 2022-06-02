@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   padding-top: 4rem;
-  padding-bottom: 2rem;
+  /* padding-bottom: 2rem; */
   height: 100%;
   width: 100%;
   color: var(--text-muted);

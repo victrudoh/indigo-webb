@@ -72,9 +72,7 @@ const Navbar2 = () => {
                 </a>
               </li>
               <li className="hide">
-                <a href="/signup" className="signup">
-                  SIGN UP
-                </a>
+                <a href="/signup">SIGN UP</a>
               </li>
             </>
           ) : (
@@ -103,14 +101,12 @@ const Navbar2 = () => {
           {!token ? (
             <>
               <li>
-                <a href="/signin" className="signin">
-                  SIGN IN
-                </a>
+                <Link to="signin">SIGN IN</Link>
               </li>
               <li>
-                <a href="/signup" className="signup">
+                <Link to="signup" className="signup">
                   SIGN UP
-                </a>
+                </Link>
               </li>
             </>
           ) : (

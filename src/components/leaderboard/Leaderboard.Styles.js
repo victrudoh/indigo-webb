@@ -18,11 +18,13 @@ export const Wrapper = styled.div`
     justify-content: end;
 
     @media screen and (max-width: 768px) {
-      display: none;
+      margin-top: 4rem;
+      /* display: none; */
     }
   }
 
-  .searchBarDown {
+  /* .searchBarDown {
+    background-color: green;
     margin: 1rem auto;
     width: 90%;
     display: flex;
@@ -31,7 +33,7 @@ export const Wrapper = styled.div`
     @media screen and (max-width: 768px) {
       margin-top: 4rem;
     }
-  }
+  } */
 
   @media screen and (max-width: 576px) {
     padding-top: 8rem;

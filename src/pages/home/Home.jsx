@@ -14,8 +14,8 @@ const Home = () => {
     <>
       <Wrapper>
         <LandingPage />
-        <Jumbotron />
         <GameShowcase />
+        <Jumbotron />
         <Leaderboard />
       </Wrapper>
     </>

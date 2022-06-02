@@ -5,17 +5,17 @@ export const Wrapper = styled.div`
   height: 80vh;
   width: 100%;
   background-color: var(--themeColor);
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
   /* background-color: red; */
 
   @media screen and (max-width: 576px) {
-    padding-top: 8rem;
+    /* padding-top: 8rem; */
     padding: 1rem;
   }
 
   @media screen and (max-width: 768px) {
     height: 80%;
-    padding-top: 1rem;
+    /* padding-top: 1rem; */
   }
 `;
 
@@ -72,6 +72,8 @@ export const Right = styled.div`
   @media screen and (max-width: 1000px) {
     width: 100%;
     text-align: center;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
   }
 
   h5 {
@@ -81,7 +83,7 @@ export const Right = styled.div`
     color: #71e5ff;
 
     @media screen and (max-width: 1000px) {
-      font-size: 12px;
+      font-size: 15px;
     }
   }
 
@@ -91,7 +93,7 @@ export const Right = styled.div`
     line-height: 45px;
 
     @media screen and (max-width: 1000px) {
-      font-size: 24px;
+      font-size: 28px;
       line-height: 35px;
     }
   }
@@ -103,7 +105,7 @@ export const Right = styled.div`
     color: #81afdd;
 
     @media screen and (max-width: 1000px) {
-      font-size: 14px;
+      font-size: 16px;
       line-height: 25px;
     }
 
@@ -119,7 +121,7 @@ export const Right = styled.div`
     color: #ff8a71;
 
     @media screen and (max-width: 1000px) {
-      font-size: 12px;
+      font-size: 16px;
       line-height: 18px;
     }
   }
