@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import axios from "axios";
+import swal from "sweetalert";
 
 // Styles
 import { Wrapper, Content } from "./signUpVerify.Styles";
@@ -23,13 +24,26 @@ const SignUpVerify = () => {
   const submit = async (e) => {
     setLoading(true);
     e.preventDefault();
-    const response = await axios.get(
-      `https://ixnote-game-dev-backend.herokuapp.com/api/v1/auth/activateAccount/${token}`
-    );
-    console.log("response", response);
-    setLoading(false);
-    if (response.status === 200) {
-      navigate("/signin");
+    try {
+      const response = await axios.get(
+        `https://ixnote-game-dev-backend.herokuapp.com/api/v1/auth/activateAccount/${token}`
+      );
+      console.log("response", response);
+      setLoading(false);
+      if (response.status === 200) {
+        navigate("/signin");
+      }
+    } catch (err) {
+      swal({
+        title: "Oops!",
+        text: err.response.data.error,
+        icon: "error",
+        buttons: false,
+        timer: 3000,
+        closeOnClickOutside: false,
+        dangerMode: true,
+      });
+      setLoading(false);
     }
   };
 

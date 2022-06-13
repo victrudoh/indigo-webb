@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Styles
 import {
@@ -29,6 +29,12 @@ import twitter from "../../assets/images/home/stream/socials/twitter.png";
 import youtube from "../../assets/images/home/stream/socials/youtube.png";
 
 const GameShowcase = () => {
+  const [url, setUrl] = useState("https://www.youtube.com/embed/NvOfDampNUE");
+
+  const getUrl = () => {
+    console.log("CLick");
+  };
+
   return (
     <>
       <Wrapper>
@@ -37,16 +43,23 @@ const GameShowcase = () => {
           STREAM
         </Top>
         <Stream>
-          <video
+          <iframe
+            src={url}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+          {/* <video
             controls
             loop
             autoPlay
-            // poster={codm}
+            poster={codm}
             src="https://www.callofduty.com/cdn/codm/videos/home/codm-hero-video-desktop.mp4"
           >
-            {/* <source type="video/mp4" /> */}
+            <source type="video/mp4" />
             Your browser does not support the video tag.
-          </video>
+          </video> */}
         </Stream>
         <Bottom>
           <Left>
@@ -74,7 +87,7 @@ const GameShowcase = () => {
         <Related>
           <RelatedTop>Related videos</RelatedTop>
           <RelatedScroll>
-            <Card title="CODM FInals" bg={codm} />
+            <Card title="CODM FInals" bg={codm} onClick={getUrl} />
             <Card title="Fortnite 3v3 tourney" bg={fortnite} />
             <Card title="Skyrim: Storm Cloak Raid" bg={skyrim} />
             <Card title="CODM FInals" bg={codm} />

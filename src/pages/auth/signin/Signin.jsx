@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import swal from "sweetalert";
 
 // Styles
 import {
@@ -18,6 +19,7 @@ import leftImage from "../../../assets/images/auth/signin/anthem.jpg";
 
 // components
 import { Spinner } from "../../../components/spinner/Spinner.Styles";
+import Alert from "../../../components/alert/Alert";
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -33,19 +35,43 @@ const Signin = () => {
     setLoading(true);
     console.log("userDetails", userDetails);
     e.preventDefault();
-    const response = await axios.post(
-      "https://ixnote-game-dev-backend.herokuapp.com/api/v1/auth/login",
-      userDetails,
-      {
-        headers: { "content-type": "application/json" },
+    try {
+      const response = await axios.post(
+        "https://ixnote-game-dev-backend.herokuapp.com/api/v1/auth/login",
+        userDetails,
+        {
+          headers: { "content-type": "application/json" },
+        }
+      );
+      console.log("response", response);
+      const token = response.data.token;
+      setLoading(false);
+      if (response.status === 200) {
+        localStorage.setItem("token", token);
+        swal({
+          title: "Success",
+          text: "Login successful",
+          icon: "success",
+          buttons: false,
+          timer: 3000,
+          closeOnClickOutside: false,
+        });
+        navigate("/profile");
       }
-    );
-    console.log("response", response);
-    const token = response.data.token;
-    setLoading(false);
-    if (response.status === 200) {
-      localStorage.setItem("token", token);
-      navigate("/profile");
+    } catch (err) {
+      // console.log("err: ", err.response);
+      // if (err.response.status === 401) {
+      swal({
+        title: "Oops!",
+        text: err.response.data.error,
+        icon: "error",
+        buttons: false,
+        timer: 3000,
+        closeOnClickOutside: false,
+        dangerMode: true,
+      });
+      setLoading(false);
+      // }
     }
   };
 
@@ -64,6 +90,7 @@ const Signin = () => {
   return (
     <>
       <Wrapper bg={bg}>
+        {/* <Alert /> */}
         <Content>
           <Left bg={leftImage} />
           <Right>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import swal from "sweetalert";
 
 // Styles
 import {
@@ -37,17 +38,30 @@ const SignUp = () => {
     setLoading(true);
     console.log("userDetails", userDetails);
     e.preventDefault();
-    const response = await axios.post(
-      "https://ixnote-game-dev-backend.herokuapp.com/api/v1/auth/signUp",
-      userDetails,
-      {
-        headers: { "content-type": "application/json" },
+    try {
+      const response = await axios.post(
+        "https://ixnote-game-dev-backend.herokuapp.com/api/v1/auth/signUp",
+        userDetails,
+        {
+          headers: { "content-type": "application/json" },
+        }
+      );
+      console.log("response", response);
+      setLoading(false);
+      if (response.status === 201) {
+        navigate("/signupgotomail");
       }
-    );
-    console.log("response", response);
-    setLoading(false);
-    if (response.status === 201) {
-      navigate("/signupgotomail");
+    } catch (err) {
+      swal({
+        title: "Oops!",
+        text: err.response.data.error,
+        icon: "error",
+        buttons: false,
+        timer: 3000,
+        closeOnClickOutside: false,
+        dangerMode: true,
+      });
+      setLoading(false);
     }
   };
 

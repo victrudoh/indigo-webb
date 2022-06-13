@@ -47,12 +47,14 @@ export const Stream = styled.div`
   width: 80%;
   margin: 0 auto;
 
-  video {
+  iframe {
     width: 100%;
+    height: 500px;
     border-radius: var(--border-radius);
 
     @media screen and (max-width: 768px) {
       width: 100%;
+      height: 250px;
     }
   }
 `;

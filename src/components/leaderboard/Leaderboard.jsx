@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import swal from "sweetalert";
 
 // Styles
 import {
@@ -45,27 +46,48 @@ const Leaderboard = () => {
 
       setUser(user);
       return user;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      // swal({
+      //   title: "Oops!",
+      //   text: err.response.data.error,
+      //   icon: "error",
+      //   buttons: false,
+      //   timer: 3000,
+      //   closeOnClickOutside: false,
+      //   dangerMode: true,
+      // });
+      // setLoading(false);
+      return err;
     }
   };
 
-  console.log("user: ", user);
-
   const getLeaderBoard = async () => {
     setLoading(true);
-    const response = await axios.get(
-      "https://ixnote-game-dev-backend.herokuapp.com/api/v1/users/leaderboard",
-      {
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
-    const board = response.data.leaderboard;
-    setBoard(board);
-    setFiltered(board);
-    setLoading(false);
+    try {
+      const response = await axios.get(
+        "https://ixnote-game-dev-backend.herokuapp.com/api/v1/users/leaderboard",
+        {
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      );
+      const board = response.data.leaderboard;
+      setBoard(board);
+      setFiltered(board);
+      setLoading(false);
+    } catch (err) {
+      swal({
+        title: "Oops!",
+        text: err.response.data.error,
+        icon: "error",
+        buttons: false,
+        timer: 3000,
+        closeOnClickOutside: false,
+        dangerMode: true,
+      });
+      setLoading(false);
+    }
   };
 
   // SearchBar Handler
@@ -116,8 +138,8 @@ const Leaderboard = () => {
             {loading ? (
               <Spinner />
             ) : (
-              filtered.map((item) => (
-                <table class="table ">
+              filtered.map((item, i) => (
+                <table className="table" key={i}>
                   <tbody>
                     <tr>
                       <td>{item.position}</td>
