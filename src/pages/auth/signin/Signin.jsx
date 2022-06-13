@@ -122,7 +122,7 @@ const Signin = () => {
                 {loading ? (
                   <>
                     <br />
-                    <Spinner />
+                    <Spinner className="my-5" />
                   </>
                 ) : (
                   <>
